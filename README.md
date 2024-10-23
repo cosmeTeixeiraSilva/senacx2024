@@ -1,6 +1,8 @@
-# React + Vite
+# Projeto Senac X - 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto Senac X 2024 
+
+Tecnologias adotas - Vite + React + MySQL e Knex
 
 Currently, two official plugins are available:
 
