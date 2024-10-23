@@ -35,7 +35,8 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
       const idCompetidor = parseInt(CodCompetidor);
       const idCompeticao = parseInt(CodCompeticao);
       const nota = parseInt(notaDada);
-      const idJurado = 44;
+      const JuradoId = localStorage.getItem('juradoId');
+      const idJurado = JuradoId;
       //Salvando o Voto 22/10/2024 1 a Fazer a tarde....
       //vetor com os dados do voto 
       const dadosVoto = {

@@ -42,21 +42,21 @@ export function Login() {
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData);
+        //console.log(responseData);
         const dadosComp = JSON.parse(JSON.stringify(responseData));
         //Criando um Array de Objeto 
         const ObjDados = dadosComp[0];
-        console.log(ObjDados.email);
+        //console.log(ObjDados.email);
         // Salve as credenciais no local storage
         localStorage.setItem('juradoId', ObjDados.id); // Ajuste conforme sua API
         localStorage.setItem('juradoEmail', ObjDados.email); // Ajuste conforme sua API
         localStorage.setItem('juradoNivel', ObjDados.nivel); // Ajuste conforme sua API
         localStorage.setItem('juradoNome', ObjDados.nome);
-        console.log('Usuário Conseguiu Logar....');
+        //console.log('Usuário Conseguiu Logar....');
         if (ObjDados.nivel === 1) {
 
           navigate('/senacxadm');
-          
+
         } else if(ObjDados.nivel === 2 ) {
 
           navigate('/senacx');
@@ -69,7 +69,7 @@ export function Login() {
 
       } else {
 
-        console.log('Erro ao fazer login', response.status);
+        //console.log('Erro ao fazer login', response.status);
         alert("Usuário não Localizado...");
         navigate('/login');
       }
