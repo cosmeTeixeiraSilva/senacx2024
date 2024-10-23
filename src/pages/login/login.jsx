@@ -75,7 +75,7 @@ export function Login() {
   return (
     <div className="h-screen w-full flex">
       <div className="h-screen md:w-2/4 bg-pattern bg-blue-900"></div>
-      <div className="h-screen w-full md:w-2/4 flex flex-col justify-center items-center gap-8 bg-white border">
+      <div className="h-screen w-full md:w-2/4 flex flex-col justify-center items-center gap-1 bg-white border">
 
 
         <img className="mx-auto w-36" src={logo} alt="logo senac" />
@@ -118,14 +118,16 @@ export function Login() {
               variant={'secondary'}
               className="w-full bg-blue-900 h-11 text-lg text-white font-bold"
             >
-              <Rocket className="size-5 mr-3" /> Acessar
+              <Rocket className="size-5 mr-3" /> Acessar Plataforma
             </Button>
 
           </form>
         </div>
-        <span className="text-orange-500 font-bold"> Edição 2024 </span>
+        <span className="text-orange-500 font-bold mt-3"> Edição 2024 </span>
         <span className="text-orange-500 font-bold"> Lavras - MG </span>
+
       </div>
+
     </div>
   )
 }
