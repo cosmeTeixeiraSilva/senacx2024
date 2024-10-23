@@ -125,7 +125,7 @@ export function Login() {
         </div>
         <div className="localidade flex flex-col">
           <span className="text-orange-500 font-bold mt-3"> Edição 2024 </span>
-          <span className="text-orange-500 font-bold"> Lavras - MG </span>
+          <span className="text-orange-500 font-bold"> Lavras/MG </span>
         </div>
 
 
