@@ -54,9 +54,17 @@ export function Login() {
         localStorage.setItem('juradoNome', ObjDados.nome);
         console.log('Usuário Conseguiu Logar....');
         if (ObjDados.nivel === 1) {
+
           navigate('/senacxadm');
-        } else {
+          
+        } else if(ObjDados.nivel === 2 ) {
+
           navigate('/senacx');
+
+        }else{
+
+          navigate('/login');
+
         }
 
       } else {
