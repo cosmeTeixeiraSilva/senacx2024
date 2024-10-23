@@ -82,7 +82,7 @@ export function Login() {
         <div className="max-w-md  p-2">
           <form onSubmit={onSubmit} className="space-y-5 ">
             <div className="flex text-start flex-col w-[300px]">
-              <Label htmlFor="email" className="md:text-lg lg:text-xl text-orange-500 ">E-mail</Label>
+              <Label htmlFor="email" className="md:text-lg lg:text-xl text-orange-500 ">E-mail:</Label>
               <Input
                 type="email"
                 onChange={(e) => setUsername(e.target.value)}
@@ -95,7 +95,7 @@ export function Login() {
               {/* <span className="text-red-500">Erro</span> */}
             </div>
             <div className="flex text-start flex-col ">
-              <Label htmlFor="password" className="md:text-lg lg:text-xl lblLogin text-orange-500 ">Senha</Label>
+              <Label htmlFor="password" className="md:text-lg lg:text-xl lblLogin text-orange-500 ">Senha:</Label>
               <Input
                 type="password"
                 required
