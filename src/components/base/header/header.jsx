@@ -32,7 +32,7 @@ export default function Header() {
             <div className=" flex flex-col md:flex-row justify-between mt-3 p-3 ">
 
                 {/*Dados do Usuário Logado no Sistema */}
-                <div className="user flex flex-col justify-items-start align-middle  mr-6 bg-white p-3 rounded">
+                <div className="user flex flex-col  bg-white p-3 rounded">
              
                     <Label className="mt-2 text-orange-400">Código:{String(JuradoId).padStart(4, '0')}</Label>
                     <Label className="text-orange-400">Nome:{juradoNome}</Label>

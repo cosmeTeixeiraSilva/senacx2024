@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import "./senacx.css";
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
-
+import { useNavigate } from "react-router-dom";
 
 //import Select 
 import {
@@ -39,7 +39,8 @@ export default function Usuarios() {
     //controla a habilitação do Botao 
     // Estado para controlar se o botão está habilitado
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-
+    const navigate = useNavigate();
+    
     function limpaCompetidor() {
         setCelular("");
         setEmail("");
@@ -55,8 +56,13 @@ export default function Usuarios() {
 
     //Carregando os Competidores 
     useEffect(() => {
+        
+       //verificando Autenticacao
+       const JuradoId = localStorage.getItem('juradoId');
+       if(JuradoId === null){
 
-       
+           navigate('/login');
+       }
 
         //Limpando as variáveis
         limpaCompeticao();

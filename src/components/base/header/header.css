@@ -5,7 +5,12 @@
     padding: 6px;
     border: 2px solid orange;
 }
+.user{
 
+    justify-content: start;
+    align-items: start;
+    
+}
 .logo2 {
     display: flex;
     align-items: center;
