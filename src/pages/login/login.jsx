@@ -118,7 +118,7 @@ export function Login() {
               variant={'secondary'}
               className="w-full bg-blue-900 h-11 text-lg text-white font-bold"
             >
-              <Rocket className="size-5 mr-3" /> Acessar Sistema
+              <Rocket className="size-5 mr-3" /> Acessar
             </Button>
 
           </form>
