@@ -9,7 +9,8 @@
 
     justify-content: start;
     align-items: start;
-    
+    min-width: 250px;
+
 }
 .logo2 {
     display: flex;

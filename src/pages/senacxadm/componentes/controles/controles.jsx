@@ -24,14 +24,7 @@ export default function Controles() {
           <Rocket className="mr-2 size-8 text-white" />
           Liberar Resultado
         </Button>
-        <Button
-          variant={"ghost"}
-          className="h-12  bg-orange-400 text-white text-sm "   
-    
-        >
-          <Rocket className="mr-2 size-8 text-white" />
-          Ver Votos Jurados
-        </Button>
+       
       </CardContent>
     </Card>
   );
