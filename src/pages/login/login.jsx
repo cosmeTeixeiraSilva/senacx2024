@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 // import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Rocket  } from "lucide-react";
+import { Rocket } from "lucide-react";
 // Imagens
 import logo from "/logo.png";
 // Axios
@@ -22,53 +22,53 @@ export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  
+
 
   const onSubmit = async (e) => {
-  e.preventDefault();
-    
+    e.preventDefault();
+
     const data = {
-        username,
-        password,
+      username,
+      password,
     };
     try {
-        const response = await fetch('https://cosme4447.c44.integrator.host/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+      const response = await fetch('https://cosme4447.c44.integrator.host/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-        if (response.ok) {
-            const responseData = await response.json();
-            console.log(responseData);
-            const dadosComp = JSON.parse(JSON.stringify(responseData));
-            //Criando um Array de Objeto 
-            const ObjDados = dadosComp[0];
-            console.log(ObjDados.email);
-            // Salve as credenciais no local storage
-            localStorage.setItem('juradoId', ObjDados.id); // Ajuste conforme sua API
-            localStorage.setItem('juradoEmail', ObjDados.email); // Ajuste conforme sua API
-            localStorage.setItem('juradoNivel', ObjDados.nivel); // Ajuste conforme sua API
-            localStorage.setItem('juradoNome', ObjDados.nome); 
-            console.log('Usuário Conseguiu Logar....');
-            if(ObjDados.nivel === 1){
-                navigate('/senacxadm');
-            }else{
-                navigate('/senacx');
-            }
-           
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        const dadosComp = JSON.parse(JSON.stringify(responseData));
+        //Criando um Array de Objeto 
+        const ObjDados = dadosComp[0];
+        console.log(ObjDados.email);
+        // Salve as credenciais no local storage
+        localStorage.setItem('juradoId', ObjDados.id); // Ajuste conforme sua API
+        localStorage.setItem('juradoEmail', ObjDados.email); // Ajuste conforme sua API
+        localStorage.setItem('juradoNivel', ObjDados.nivel); // Ajuste conforme sua API
+        localStorage.setItem('juradoNome', ObjDados.nome);
+        console.log('Usuário Conseguiu Logar....');
+        if (ObjDados.nivel === 1) {
+          navigate('/senacxadm');
         } else {
-
-            console.log('Erro ao fazer login', response.status);
-            alert("Usuário não Localizado...");
-            navigate('/login');
+          navigate('/senacx');
         }
+
+      } else {
+
+        console.log('Erro ao fazer login', response.status);
+        alert("Usuário não Localizado...");
+        navigate('/login');
+      }
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-};
+  };
 
 
 
@@ -118,9 +118,9 @@ export function Login() {
               variant={'secondary'}
               className="w-full bg-blue-900 h-11 text-lg text-white font-bold"
             >
-              <Rocket className="size-5 mr-3"/> Entrar
+              <Rocket className="size-5 mr-3" /> Acessar Sistema
             </Button>
-         
+
           </form>
         </div>
         <span className="text-orange-500 font-bold"> Edição 2024 </span>
