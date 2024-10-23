@@ -1,0 +1,22 @@
+.CardDados {
+
+
+  border: 2px solid orange;
+  align-items: start;
+  letter-spacing: 3px !important;
+  font-weight: bold;
+  background-color: white;
+  min-width: 300px;
+
+}
+
+.comboSenacx {
+
+
+  background-color: white !important;
+
+}
+
+.dados {
+  font-size: 12px;
+}

@@ -1,0 +1,7 @@
+.inputVoto {
+    border: 1px solid rgb(240, 186, 87) !important;
+    padding: 12px;
+    border-radius: 6px;
+    width: 150px !important;
+    background-color: white !important;
+}
