@@ -35,12 +35,12 @@ export default function Usuarios() {
     const [NomeCompeticao, setNomeCompeticao] = useState();
     const [CidadeCompeticao, setCidadeCompeticao] = useState();
     // Estado para controlar o clique do botão
-    const [btnCarregar_Clicked, setCarregarClicked] = useState(false);
+    const [btnCarregar_Clicked, setCarregarClicked] = useState(true);
     //controla a habilitação do Botao 
     // Estado para controlar se o botão está habilitado
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const navigate = useNavigate();
-    
+
     function limpaCompetidor() {
         setCelular("");
         setEmail("");
@@ -56,13 +56,13 @@ export default function Usuarios() {
 
     //Carregando os Competidores 
     useEffect(() => {
-        
-       //verificando Autenticacao
-       const JuradoId = localStorage.getItem('juradoId');
-       if(JuradoId === null){
 
-           navigate('/login');
-       }
+        //verificando Autenticacao
+        const JuradoId = localStorage.getItem('juradoId');
+        if (JuradoId === null) {
+
+            navigate('/login');
+        }
 
         //Limpando as variáveis
         limpaCompeticao();
@@ -115,7 +115,7 @@ export default function Usuarios() {
             //busca as competicoes do competidor Selecionado
             BuscaCompeticoes(id);
             //habilitar o botão para carregar os dados 
-            //setIsButtonDisabled(false);
+            setIsButtonDisabled(false);
             // Exibir Toast de sucesso
             toast.success('Competidor Localizado!', {
                 autoClose: 3000
@@ -303,7 +303,7 @@ export default function Usuarios() {
                     <div className="CardDados p-4 border mt-2  flex flex-col justify-items-center align-middle rounded  ] " >
 
                         <Label htmlFor="competidor" className='text-orange-400'>Dados do Competidor:</Label>
-                        <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label>
+                        {/* <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label> */}
                         <Label className='mt-2'> E-mail: <span className='text-blue-500'>{email}</span></Label>
                         <Label className='mt-2'> Celular: <span className='text-blue-500'>{celular}</span></Label>
 
@@ -315,7 +315,7 @@ export default function Usuarios() {
                     <div className="CardDados p-4 border mt-2  flex flex-col justify-items-center align-middle rounded ]" >
 
                         <Label htmlFor="competidor" className='text-orange-400'>Dados do Competição:</Label>
-                        <Label className='mt-2'> Código: <span className='text-orange-500'>{CodCompeticao}</span></Label>
+                        {/* <Label className='mt-2'> Código: <span className='text-orange-500'>{CodCompeticao}</span></Label> */}
                         <Label className='mt-2'> Competição: <span className='text-orange-500'>{NomeCompeticao}</span></Label>
                         <Label className='mt-2'> Cidade: <span className='text-orange-500'>{CidadeCompeticao}</span></Label>
 
