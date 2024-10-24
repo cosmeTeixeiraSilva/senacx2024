@@ -30,12 +30,12 @@ export default function Controles() {
 
 
 
-    <div className="flex items-center space-x-4 w-[320px]">
+    <div className="flex items-center space-x-1">
       <Switch id="habilitarResultado"    
           checked= {habilitado}
           onCheckedChange={()=>habilitar()}
-          className="text-2xl"/>
-      <Label htmlFor="habilitarResultado" className="text-xl w-full">Habilitar Resultado.</Label>
+          className="text-xl"/>
+      <Label htmlFor="habilitarResultado" className="text-md w-full text-orange-500 font-bold">Habilitar Resultado.</Label>
     </div>
 
 

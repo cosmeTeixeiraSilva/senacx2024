@@ -3,7 +3,7 @@ import "./senacx.css";
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import btnResultado from './btnResultado/btnResulltado';
+
 //import Select 
 import {
     Select,
@@ -22,7 +22,7 @@ import { Rocket } from "lucide-react";
 
 export default function Usuarios() {
 
-    const [mostrarResultado, setMostrarResultado] = useState(true);
+    const [mostrarResultado, setMostrarResultado] = useState(false);
     const [competidor, setCompetidor] = useState([]);
     const [email, setEmail] = useState("");
     const [codigo, setCodigo] = useState("");
@@ -143,14 +143,14 @@ export default function Usuarios() {
         }
         //O array de Dependencia aguarda o click no Botão
     }, [btnCarregar_Clicked]);
-    //Buscando os acessos 
+    //Gestão de Componentes na Tela 
   
     useEffect(() => {
     
         const fetchGestaoNivel = async () => {
             try {
 
-                const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/gestaoNivel');
+                const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/gestaoComponentes');
                 const gestaoNivelRes = await response.json();
                 setGestaoNivel(gestaoNivelRes);
 
@@ -285,7 +285,7 @@ export default function Usuarios() {
             <Header />
             {/*Botão Mostrar Resultado   */}
             {mostrarResultado && (
-                <div>
+                <div className='flex m-1'>
                 <Button variant={'default'}  
 
                         className="bg-orange-500 p-8" 
