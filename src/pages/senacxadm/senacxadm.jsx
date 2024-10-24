@@ -43,7 +43,7 @@ export default function About() {
             {/* <Ranking /> */}
             {/* <RankingGeral /> */}
             {/* <DashBoardAdm /> */}
-            <div className="quesitos flex flex-col justify-center">
+            <div className="quesitos flex flex-row justify-center">
                 {resultado.map(equipe => (
 
                     <CardEquipe nomeEquipe={equipe.nome} totalPontos={equipe.total_nota} />
