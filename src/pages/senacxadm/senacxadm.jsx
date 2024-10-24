@@ -27,7 +27,7 @@ export default function About() {
             setNivelJurado(juradoNivel);
             //console.log(`Nível do Jurado é: ${juradoNivel}`)
             //habilitando os controles 
-            if(mostrarControles || juradoNivel === '1'){
+            if (mostrarControles || juradoNivel === '1') {
 
                 setControles(true);
             }
@@ -56,17 +56,18 @@ export default function About() {
                 <div>
 
                     <Controles />
-             
+
                 </div>
             )}
-            
+
             {/* <Ranking /> */}
             {/* <RankingGeral /> */}
             {/* <DashBoardAdm /> */}
             <div className="quesitos flex flex-row justify-center flex-wrap">
-                {resultado.map(equipe => (
+                {resultado.map((equipe, index) => (
 
-                    <CardEquipe nomeEquipe={equipe.nome} totalPontos={equipe.total_nota} />
+
+                    <CardEquipe key={index} nomeEquipe={equipe.nome} totalPontos={equipe.total_nota} indice={index + 1} />
 
                 ))}
 

@@ -22,7 +22,7 @@ import { Rocket } from "lucide-react";
 
 export default function Usuarios() {
 
-    const [mostrarResultado, setMostrarResultado] = useState(false);
+    const [mostrarResultado, setMostrarResultado] = useState(0);
     const [competidor, setCompetidor] = useState([]);
     const [email, setEmail] = useState("");
     const [codigo, setCodigo] = useState("");
@@ -34,11 +34,15 @@ export default function Usuarios() {
     const [CodCompeticao, setCodCompeticao] = useState();
     const [NomeCompeticao, setNomeCompeticao] = useState();
     const [CidadeCompeticao, setCidadeCompeticao] = useState();
+    //Dados do Competidor
+    const [EmailCompetidor, setEmailCompetidor] = useState();
+    const [NomeCompetidor, setNomeCompetidor] = useState();
+
     // Estado para controlar o clique do botão
     const [btnCarregar_Clicked, setCarregarClicked] = useState(true);
     // Estado para Gestao de Nivel
     const [gestaoNivel, setGestaoNivel] = useState([]);
-    
+
     //controla a habilitação do Botao 
     // Estado para controlar se o botão está habilitado
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -70,8 +74,8 @@ export default function Usuarios() {
         }
 
         //Limpando as variáveis
-        limpaCompeticao();
-        limpaCompetidor();
+        //limpaCompeticao();
+        //limpaCompetidor();
         const fetchCompetidores = async () => {
             try {
 
@@ -115,7 +119,7 @@ export default function Usuarios() {
             //passando os dados para o FrontEnd com 
             setCodigo((String(dadosComp.id).padStart(4, '0')));
             setCelular(dadosComp.celular);
-            setCompetidor(competidor);
+            setNomeCompetidor(dadosComp.nome);
             setEmail(dadosComp.email);
             //busca as competicoes do competidor Selecionado
             BuscaCompeticoes(id);
@@ -144,15 +148,24 @@ export default function Usuarios() {
         //O array de Dependencia aguarda o click no Botão
     }, [btnCarregar_Clicked]);
     //Gestão de Componentes na Tela 
-  
+
     useEffect(() => {
-    
+
         const fetchGestaoNivel = async () => {
             try {
 
-                const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/gestaoComponentes');
+                const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/gestaoacesso');
                 const gestaoNivelRes = await response.json();
                 setGestaoNivel(gestaoNivelRes);
+                const dadosAcesso = JSON.parse(JSON.stringify(gestaoNivelRes));
+                //console.log(dadosAcesso);
+                //Controle Acessos 
+                //console.log(`Competidor : ${dadosAcesso[0].Resultado}`);
+                //console.log(`Admininstrador : ${dadosAcesso[1].Resultado}`);
+                //console.log(`Jurado : ${dadosAcesso[2].Resultado}`);
+                setMostrarResultado(dadosAcesso[2].Resultado)
+                //console.log(`Acesso Jurado ao Resultado: ${mostrarResultado}`)
+                //console.log(`Tipo: ${typeof (mostrarResultado)}`)
 
             } catch (err) {
 
@@ -259,9 +272,9 @@ export default function Usuarios() {
                 //Criando um Array de Objeto 
                 const ObjDados = dadosCompeticao[0];
                 //console.log(ObjDados);
-                //console.log(ObjDados.id);
+                //console.log(ObjDados.nome);
                 //Limpando as variáveis
-                limpaCompeticao();
+                //limpaCompeticao();
                 setCodCompeticao((String(idCompeticao).padStart(4, '0')));
                 setNomeCompeticao(ObjDados.nome);
                 setCidadeCompeticao(ObjDados.cidade);
@@ -284,21 +297,22 @@ export default function Usuarios() {
         <div className='usuarios flex flex-col justify-cente  p-3  h-full'>
             <Header />
             {/*Botão Mostrar Resultado   */}
-            {mostrarResultado && (
+            {mostrarResultado === 1 && (
                 <div className='flex m-1'>
-                <Button variant={'default'}  
 
-                        className="bg-orange-500 p-8" 
-                        onClick={()=> navigate('/senacxadm')}> Ver Resultado </Button>
-             
+                    <Button variant={'default'}
+
+                        className="bg-orange-500 p-8"
+                        onClick={() => navigate('/senacxadm')}> Ver Resultado </Button>
+
                 </div>
             )}
             <div className="submenu flex  flex-col justify-center  border rounded p-6 bg-white mt-4">
                 <div className="competidor flex flex-col justify-center">
                     <span className='text-left tituloTable'>Equipe/Competidor. </span>
-                    <Select className="comboSenacx" 
-                            value='' //Garante que não tenha valor selecionado qdo carregar 
-                            onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
+                    <Select className="comboSenacx"
+                        //value={NomeCompetidor} //Garante que não tenha valor selecionado qdo carregar 
+                        onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
                         <SelectTrigger >
                             <SelectValue placeholder="Competidores" />
                         </SelectTrigger>
@@ -315,11 +329,11 @@ export default function Usuarios() {
                 </div>
                 <div className="competidor flex flex-col sm:w-full">
                     <span className='comboSenacx text-left tituloTable mt-4'>Competição. </span>
-                    <Select 
-                        value=''  //Garante que não haverá conteudo selecionado na ComboBox
+                    <Select
+                        value=''  //Garante o evento Mudar o valor caso contrario o OnValueChange não funciona
                         onValueChange={(SelectValue) => handleMudouCompeticao(SelectValue)}>
                         <SelectTrigger >
-                            
+
                             <SelectValue placeholder="Selecione uma Competição" />
                         </SelectTrigger>
                         <SelectContent>
@@ -336,7 +350,9 @@ export default function Usuarios() {
 
 
             </div>
+            <Label className='mt-2 text-blue-600 font-bold'>Dados da pontuação a ser inserida:</Label>
             <div className="dados flex  justify-between mt-4 rounded flex-col  md:flex-row  gap-6  ">
+
 
                 <div name='competidor' className='md:w-[600px]' >
 
