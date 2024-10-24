@@ -21,8 +21,8 @@ function App() {
 
       <ToastContainer
         theme="colored"
-        position="bottom-right"
-        autoClose={3000}
+        position="top-right"
+        autoClose={2000}
         hideProgressBar={false}
       />
       {/* Este é um comentário em JSX */}

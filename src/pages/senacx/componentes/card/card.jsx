@@ -68,12 +68,12 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
           // Aqui você pode lidar com a resposta
           //Toast Confirmando o Voto no Quesito 
           if (data.status === 0) {
-            toast.success(`${data.message}: ${(String(notaDada).padStart(2, '0'))} de 10 pontos.`, {
-              autoClose: 3000
+            toast.success(`${data.message}: ${(String(notaDada).padStart(2, '0'))}`, {
+              autoClose: 2000
             });
           } else {
-            toast.error(`Você já votou nesse Quesito!`, {
-              autoClose: 3000
+            toast.error(`Quesito já Computado!`, {
+              autoClose: 2000
             });
           }
         })
