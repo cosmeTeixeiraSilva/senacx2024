@@ -13,6 +13,7 @@ export default function Header() {
     const juradoNome = localStorage.getItem('juradoNome');
     const juradoEmail = localStorage.getItem('juradoEmail');
     const juradoNivel = localStorage.getItem('juradoNivel');
+    
     var nivel = '';
     //definir o nível 
     if (juradoNivel === '1'){
@@ -53,6 +54,7 @@ export default function Header() {
                     
                 </div>
                 <Button variant={'default'} className='bg-orange-400  mt-3 ' onClick={() => LogOut()}> <DoorOpen className="m-3" />Sair</Button>
+              
 
             </div>
         </div>

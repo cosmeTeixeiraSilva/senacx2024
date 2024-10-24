@@ -8,6 +8,8 @@ import { useState } from "react";
 export default function About() {
     const navigate = useNavigate();
     const [resultado, setResultado] = useState([]);
+    const [mostrarControles, setControles] = useState(false);
+    const [nivelJurado, setNivelJurado] = useState();
 
     useEffect(() => {
         //verificando Autenticacao
@@ -19,6 +21,17 @@ export default function About() {
         //carregando o ranking dos competidores 
 
         const fetchRanking = async () => {
+            //pegando o nivel do Usuário 
+            const juradoNivel = localStorage.getItem('juradoNivel');
+            //Atualizando o nível do Jurado 
+            setNivelJurado(juradoNivel);
+            //console.log(`Nível do Jurado é: ${juradoNivel}`)
+            //habilitando os controles 
+            if(mostrarControles || juradoNivel === '1'){
+
+                setControles(true);
+            }
+
             try {
 
                 const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/ranking');
@@ -39,7 +52,14 @@ export default function About() {
         <div className="pagina p-2 rounded border">
 
             <Header />
-            <Controles />
+            {mostrarControles && (
+                <div>
+
+                    <Controles />
+             
+                </div>
+            )}
+            
             {/* <Ranking /> */}
             {/* <RankingGeral /> */}
             {/* <DashBoardAdm /> */}

@@ -3,7 +3,7 @@ import "./senacx.css";
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-
+import btnResultado from './btnResultado/btnResulltado';
 //import Select 
 import {
     Select,
@@ -22,7 +22,7 @@ import { Rocket } from "lucide-react";
 
 export default function Usuarios() {
 
-
+    const [mostrarResultado, setMostrarResultado] = useState(true);
     const [competidor, setCompetidor] = useState([]);
     const [email, setEmail] = useState("");
     const [codigo, setCodigo] = useState("");
@@ -36,9 +36,14 @@ export default function Usuarios() {
     const [CidadeCompeticao, setCidadeCompeticao] = useState();
     // Estado para controlar o clique do botão
     const [btnCarregar_Clicked, setCarregarClicked] = useState(true);
+    // Estado para Gestao de Nivel
+    const [gestaoNivel, setGestaoNivel] = useState([]);
+    
     //controla a habilitação do Botao 
     // Estado para controlar se o botão está habilitado
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [selectedCompeticao, setSelectedCompeticao] = useState(''); // Estado para armazenar a seleção
+
     const navigate = useNavigate();
 
     function limpaCompetidor() {
@@ -86,7 +91,7 @@ export default function Usuarios() {
 
         //Limpando as variáveis
         limpaCompetidor();
-        console.log(id);
+        //console.log(id);
         //limpando os quesitos por um Array Vazio 
         setQuesitos([]);
 
@@ -105,8 +110,8 @@ export default function Usuarios() {
             //converter para array
             //const dadosComp = Object.values(competidor);
             const dadosComp = JSON.parse(JSON.stringify(Dadoscompetidor));
-            console.log(dadosComp);
-            console.log(dadosComp.email);
+            //console.log(dadosComp);
+            //console.log(dadosComp.email);
             //passando os dados para o FrontEnd com 
             setCodigo((String(dadosComp.id).padStart(4, '0')));
             setCelular(dadosComp.celular);
@@ -130,7 +135,7 @@ export default function Usuarios() {
 
         if (btnCarregar_Clicked) {
             //Mostra no Console do Navegador do FrontEnd o texto abaixo
-            console.log('Houve um click no Botão Carregar Quesitos');
+            //console.log('Houve um click no Botão Carregar Quesitos');
             //voltar o estado de falso do botão
             setCarregarClicked(false);
 
@@ -138,6 +143,26 @@ export default function Usuarios() {
         }
         //O array de Dependencia aguarda o click no Botão
     }, [btnCarregar_Clicked]);
+    //Buscando os acessos 
+  
+    useEffect(() => {
+    
+        const fetchGestaoNivel = async () => {
+            try {
+
+                const response = await fetch('https://cosme4447.c44.integrator.host/api/senacx/gestaoNivel');
+                const gestaoNivelRes = await response.json();
+                setGestaoNivel(gestaoNivelRes);
+
+            } catch (err) {
+
+                console.error('Erro ao buscar dados:', err);
+            }
+        };
+        fetchGestaoNivel();
+
+        //Setando a Gestao de nivel 
+    }, []);
     //botao foi clicado 
     function btnClicou() {
 
@@ -151,7 +176,7 @@ export default function Usuarios() {
                 setQuesitos(quesitos);
                 const dadosQuesitos = JSON.parse(JSON.stringify(quesitos));
                 const quantidadeQuesitos = Object.keys(dadosQuesitos).length;
-                console.log(`Quantidade de Quesitos Localizados: ${quantidadeQuesitos}`);
+                //console.log(`Quantidade de Quesitos Localizados: ${quantidadeQuesitos}`);
                 if (quantidadeQuesitos == 0) {
                     // Exibir Toast de sucesso
                     toast.error(`Sem Quesitos Cadastrados: ${quantidadeQuesitos} `, {
@@ -171,7 +196,7 @@ export default function Usuarios() {
         };
         fetchQuesitos();
         setIsButtonDisabled(true);
-        console.log("Botão Desativado")
+        //console.log("Botão Desativado")
     }
     //funcao busca competicoes 
     function BuscaCompeticoes(idCompetidor) {
@@ -187,7 +212,7 @@ export default function Usuarios() {
                 setCompeticoes(competicao);
                 const dadosCompeticao = JSON.parse(JSON.stringify(competicao));
                 const quantidadeInscricoes = Object.keys(dadosCompeticao).length;
-                console.log(`A quantidade de Inscrições encontradas para o competidor foi de: ${quantidadeInscricoes}`)
+                //console.log(`A quantidade de Inscrições encontradas para o competidor foi de: ${quantidadeInscricoes}`)
                 if (quantidadeInscricoes == 0) {
                     // Exibir Toast de sucesso
                     toast.error(`Inscrições: ${quantidadeInscricoes} `, {
@@ -202,8 +227,8 @@ export default function Usuarios() {
                 }
                 //Criando um Array de Objeto 
                 const ObjDados = dadosCompeticao[0];
-                console.log(ObjDados);
-                console.log(ObjDados.id);
+                //console.log(ObjDados);
+                //console.log(ObjDados.id);
                 //Limpando as variáveis
 
                 setCodCompeticao((String(ObjDados.id).padStart(4, '0')));
@@ -233,8 +258,8 @@ export default function Usuarios() {
                 const dadosCompeticao = JSON.parse(JSON.stringify(competicao));
                 //Criando um Array de Objeto 
                 const ObjDados = dadosCompeticao[0];
-                console.log(ObjDados);
-                console.log(ObjDados.id);
+                //console.log(ObjDados);
+                //console.log(ObjDados.id);
                 //Limpando as variáveis
                 limpaCompeticao();
                 setCodCompeticao((String(idCompeticao).padStart(4, '0')));
@@ -246,7 +271,7 @@ export default function Usuarios() {
         };
         fetchCompeticao();
         //verificando a quantidade de quesitos localizados 
-        console.log(`Código da Competição ativa: ${idCompeticao}`);
+        //console.log(`Código da Competição ativa: ${idCompeticao}`);
         //habilitando o Botão Carregar Quesitos
         setIsButtonDisabled(false);
         //Limpar os quesitos 
@@ -258,10 +283,22 @@ export default function Usuarios() {
     return (
         <div className='usuarios flex flex-col justify-cente  p-3  h-full'>
             <Header />
+            {/*Botão Mostrar Resultado   */}
+            {mostrarResultado && (
+                <div>
+                <Button variant={'default'}  
+
+                        className="bg-orange-500 p-8" 
+                        onClick={()=> navigate('/senacxadm')}> Ver Resultado </Button>
+             
+                </div>
+            )}
             <div className="submenu flex  flex-col justify-center  border rounded p-6 bg-white mt-4">
                 <div className="competidor flex flex-col justify-center">
                     <span className='text-left tituloTable'>Equipe/Competidor. </span>
-                    <Select className="comboSenacx" onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
+                    <Select className="comboSenacx" 
+                            value='' //Garante que não tenha valor selecionado qdo carregar 
+                            onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
                         <SelectTrigger >
                             <SelectValue placeholder="Competidores" />
                         </SelectTrigger>
@@ -278,9 +315,12 @@ export default function Usuarios() {
                 </div>
                 <div className="competidor flex flex-col sm:w-full">
                     <span className='comboSenacx text-left tituloTable mt-4'>Competição. </span>
-                    <Select onValueChange={(SelectValue) => handleMudouCompeticao(SelectValue)}>
+                    <Select 
+                        value=''  //Garante que não haverá conteudo selecionado na ComboBox
+                        onValueChange={(SelectValue) => handleMudouCompeticao(SelectValue)}>
                         <SelectTrigger >
-                            <SelectValue placeholder="Competições" />
+                            
+                            <SelectValue placeholder="Selecione uma Competição" />
                         </SelectTrigger>
                         <SelectContent>
                             {competicoes.map(competicao => (
