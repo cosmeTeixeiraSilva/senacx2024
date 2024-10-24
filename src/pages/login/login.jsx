@@ -57,11 +57,11 @@ export function Login() {
 
           navigate('/senacxadm');
 
-        } else if(ObjDados.nivel === 2 ) {
+        } else if (ObjDados.nivel === 2) {
 
           navigate('/senacx');
 
-        }else{
+        } else {
 
           navigate('/login');
 
@@ -90,7 +90,7 @@ export function Login() {
         <div className="max-w-md  p-2">
           <form onSubmit={onSubmit} className="space-y-5 ">
             <div className="flex text-start flex-col w-[300px]">
-              <Label htmlFor="email" className="md:text-lg lg:text-xl text-orange-500 ">E-mail:</Label>
+              <Label htmlFor="email" className="md:text-lg lg:text-xl text-orange-500 ">Login:</Label>
               <Input
                 type="email"
                 onChange={(e) => setUsername(e.target.value)}
@@ -126,7 +126,7 @@ export function Login() {
               variant={'secondary'}
               className="w-full bg-blue-900 h-11 text-lg text-white font-bold"
             >
-              <Rocket className="size-5 mr-3" /> Acessar Plataforma
+              <Rocket className="size-5 mr-3" /> ENTRAR
             </Button>
 
           </form>
