@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import "./senacx.css";
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-
+import CardVoto from './componentes/card/card';
+import Header from '@/components/base/header/header';
+import { Label } from '@radix-ui/react-label';
+import { Rocket } from "lucide-react";
 //import Select 
 import {
     Select,
@@ -12,13 +15,11 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import Footer from '@/components/base/footer/footer';
 
 
 
-import CardVoto from './componentes/card/card';
-import Header from '@/components/base/header/header';
-import { Label } from '@radix-ui/react-label';
-import { Rocket } from "lucide-react";
+
 
 export default function Usuarios() {
 
@@ -87,6 +88,23 @@ export default function Usuarios() {
             }
         };
         fetchCompetidores();
+
+    }, []);
+    //Mensagem de Boas Vindas 
+    const executou = useRef(false); // flag inicializada como false
+    useEffect(() => {
+
+        if (executou.current) {
+            return;
+
+        }  // se já executou, retorna sem fazer nada
+        //Mensagem de Boas Vindas
+        toast.success(`Bem vindo a Plataforma SENACX  ${localStorage.getItem('juradoNome')}`, {
+
+            autoClose: 4000
+        });
+        executou.current = true; // Define o flag para evitar a execução novamente
+
     }, []);
 
     //Função mudou competidor
@@ -294,7 +312,7 @@ export default function Usuarios() {
 
 
     return (
-        <div className='usuarios flex flex-col justify-cente  p-3  h-full'>
+        <div className='usuarios flex flex-col justify-cente  p-2 h-full'>
             <Header />
             {/*Botão Mostrar Resultado   */}
             {mostrarResultado === 1 && (
@@ -350,7 +368,7 @@ export default function Usuarios() {
 
 
             </div>
-            <Label className='mt-2 text-blue-600 font-bold'>Dados da pontuação a ser inserida:</Label>
+            <Label className='mt-2 text-orange-400 font-bold text-left'>Dados da pontuação a ser inserida:</Label>
             <div className="dados flex  justify-between mt-4 rounded flex-col  md:flex-row  gap-6  ">
 
 
@@ -396,7 +414,7 @@ export default function Usuarios() {
 
             </div>
 
-
+            <Footer />
         </div >
     );
 }

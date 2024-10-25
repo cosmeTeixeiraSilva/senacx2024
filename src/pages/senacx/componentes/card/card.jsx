@@ -36,6 +36,7 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
       const idCompeticao = parseInt(CodCompeticao);
       const nota = parseInt(notaDada);
       const JuradoId = localStorage.getItem('juradoId');
+      const juradoNome = localStorage.getItem('juradoNome');
       const idJurado = JuradoId;
       //Salvando o Voto 22/10/2024 1 a Fazer a tarde....
       //vetor com os dados do voto 
@@ -49,6 +50,13 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
 
       };
       console.log(dadosVoto);
+      if (nota < 0 || Number.isNaN(nota)) {
+
+        toast.error(`Favor inserir uma nota ${localStorage.getItem('juradoNome')}!`, {
+          autoClose: 3000
+        });
+        return;
+      }
       const response = fetch('https://cosme4447.c44.integrator.host/api/senacx/inserirvoto', {
         method: 'POST',
         headers: {
@@ -71,15 +79,22 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
             toast.success(`${data.message}: ${(String(notaDada).padStart(2, '0'))}`, {
               autoClose: 2000
             });
-          } else {
-            toast.error(`Quesito já Computado!`, {
+            toast.success(`Obrigado ${juradoNome}`, {
               autoClose: 2000
+            });
+          } else {
+
+            toast.error(`${data.message}, ${juradoNome}!`, {
+              autoClose: 3000
             });
           }
         })
         .catch((error) => {
           console.error('Erro:', error);
           // Tratar erros aqui
+          toast.error(`${data.message}`, {
+            autoClose: 3000
+          });
         });
 
 
@@ -93,8 +108,9 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
     } else {
 
       console.log("Nota não encontrada ou não definida.");
+
       // Exibir Toast de erro
-      toast.error('Favor Inserir uma NOTA.', {
+      toast.error(`Favor Inserir NOTA  ${localStorage.getItem('juradoNome')}`, {
 
         autoClose: 3000
       });

@@ -94,7 +94,7 @@ export default function Controles() {
         </Card>
       </div>
       <div className="direita flex justify-center mt-2 mb-2">
-        <Rocket className="mr-2 size-8 text-blue-400" />
+
       </div>
     </div>
   );

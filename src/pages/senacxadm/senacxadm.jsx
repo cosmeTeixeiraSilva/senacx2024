@@ -1,10 +1,12 @@
 import Header from "@/components/base/header/header"
 import Controles from "./componentes/controles/controles"
 import RankingGeral from "./componentes/geral/geral"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom";
 import CardEquipe from "./componentes/listagem/listagem"
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import Footer from "@/components/base/footer/footer";
 export default function About() {
     const navigate = useNavigate();
     const [resultado, setResultado] = useState([]);
@@ -21,6 +23,7 @@ export default function About() {
         //carregando o ranking dos competidores 
 
         const fetchRanking = async () => {
+            console.log('Atualizando Ranking');
             //pegando o nivel do Usuário 
             const juradoNivel = localStorage.getItem('juradoNivel');
             //Atualizando o nível do Jurado 
@@ -44,12 +47,33 @@ export default function About() {
             }
         };
         fetchRanking();
+        //Atualiza o componente a cada 30 segundos
+        // Configurando o intervalo
+        const intervalo = setInterval(fetchRanking, 30000);
+
+        // Limpando o intervalo ao desmontar o componente
+        return () => clearInterval(intervalo);
     }, []);
 
+    //Mensagem de Boas Vindas 
+    const executou = useRef(false); // flag inicializada como false
+    useEffect(() => {
 
+        if (executou.current) {
+            return;
+
+        }  // se já executou, retorna sem fazer nada
+        //Mensagem de Boas Vindas
+        toast.success(`Bem vindo a Plataforma SENACX  ${localStorage.getItem('juradoNome')}`, {
+
+            autoClose: 4000
+        });
+        executou.current = true; // Define o flag para evitar a execução novamente
+
+    }, []);
 
     return (
-        <div className="pagina p-2 rounded border">
+        <div className="pagina p-2">
 
             <Header />
             {mostrarControles && (
@@ -63,7 +87,7 @@ export default function About() {
             {/* <Ranking /> */}
             {/* <RankingGeral /> */}
             {/* <DashBoardAdm /> */}
-            <div className="quesitos flex flex-row justify-center flex-wrap">
+            <div className="quesitos flex flex-row justify-between flex-wrap mt-6">
                 {resultado.map((equipe, index) => (
 
 
@@ -72,7 +96,7 @@ export default function About() {
                 ))}
 
             </div>
-
+            <Footer />
 
         </div>
     )
