@@ -3,28 +3,43 @@ import { useNavigate } from "react-router-dom";
 import "./header.css"
 import { Label } from "@radix-ui/react-label";
 import { DoorOpen } from "lucide-react";
+import { useEffect, useState } from "react";
 
 
 export default function Header() {
     const navigate = useNavigate();
+    const [JuradoId, setJuradoID] = useState();
+    const [juradoNome, setJuradoNome] = useState();
+    const [juradoEmail, setJuradoEmail] = useState();
+    const [juradoNivel, setJuradoNivel] = useState();
+    const [nivel, setNivel] = useState();
     //pegando os dados de Login 
+
     // Recupera um item do localStorage
-    const JuradoId = localStorage.getItem('juradoId');
-    const juradoNome = localStorage.getItem('juradoNome');
-    const juradoEmail = localStorage.getItem('juradoEmail');
-    const juradoNivel = localStorage.getItem('juradoNivel');
+    useEffect(() => {
 
-    var nivel = '';
-    //definir o nível 
-    if (juradoNivel === '1') {
+        setJuradoID(localStorage.getItem('juradoId'));
+        setJuradoNome(localStorage.getItem('juradoNome'));
+        setJuradoEmail(localStorage.getItem('juradoEmail'));
+        setJuradoNivel(localStorage.getItem('juradoNivel'));
 
-        nivel = 'Administrador';
 
-    } else {
+        //definir o nível 
+        if (juradoNivel === '1') {
 
-        nivel = 'Jurado';
 
-    }
+            setNivel('Administrador');
+            
+
+        } else {
+
+            setNivel('Jurado');
+
+        }
+
+
+    }, []);
+
     function LogOut() {
 
         // Remove um item do localStorage
