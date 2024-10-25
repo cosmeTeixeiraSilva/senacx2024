@@ -12,6 +12,11 @@ export default function About() {
     const [resultado, setResultado] = useState([]);
     const [mostrarControles, setControles] = useState(false);
     const [nivelJurado, setNivelJurado] = useState();
+    const [JuradoId, setJuradoID] = useState();
+    const [juradoNome, setJuradoNome] = useState();
+    const [juradoEmail, setJuradoEmail] = useState();
+    const [juradoNivel, setJuradoNivel] = useState();
+    const [nivel, setNivel] = useState();
 
     useEffect(() => {
         //verificando Autenticacao
@@ -64,6 +69,25 @@ export default function About() {
 
         }  // se já executou, retorna sem fazer nada
         //Mensagem de Boas Vindas
+        setJuradoID(localStorage.getItem('juradoId'));
+        setJuradoNome(localStorage.getItem('juradoNome'));
+        setJuradoEmail(localStorage.getItem('juradoEmail'));
+        setJuradoNivel(localStorage.getItem('juradoNivel'));
+        //Dados 
+        console.log(`${juradoNome}`);
+
+        //definir o nível 
+        if (juradoNivel === '1') {
+
+
+            setNivel('Administrador');
+
+
+        } else {
+
+            setNivel('Jurado');
+
+        }
         toast.success(`Bem vindo a Plataforma SENACX  ${localStorage.getItem('juradoNome')}`, {
 
             autoClose: 4000

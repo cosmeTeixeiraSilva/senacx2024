@@ -17,19 +17,26 @@ export default function Header() {
 
     // Recupera um item do localStorage
     useEffect(() => {
-
-        setJuradoID(localStorage.getItem('juradoId'));
-        setJuradoNome(localStorage.getItem('juradoNome'));
-        setJuradoEmail(localStorage.getItem('juradoEmail'));
-        setJuradoNivel(localStorage.getItem('juradoNivel'));
-
+        const nome = localStorage.getItem('juradoNome');
+        const nivel = localStorage.getItem('juradoNivel');
+        const email = localStorage.getItem('juradoEmail')
+        const id = localStorage.getItem('juradoId')
+        setJuradoID(id);
+        setJuradoNome(nome);
+        setJuradoEmail(email);
+        setJuradoNivel(nivel);
+        //Dados 
+        console.log(`${id}`);
+        console.log(`${juradoNome}`);
+        console.log(`${juradoNivel}`);
+        console.log(`${email}`);
 
         //definir o nível 
         if (juradoNivel === '1') {
 
 
             setNivel('Administrador');
-            
+
 
         } else {
 
@@ -60,11 +67,11 @@ export default function Header() {
             <div className=" flex flex-col md:flex-row justify-between  mt-1 p-3 ">
 
                 {/*Dados do Usuário Logado no Sistema */}
-                <div className="user flex flex-col  bg-white p-3 rounded bg-black">
+                <div className="user flex flex-col  bg-white p-3 rounded">
                     <span className="text-white font-bold text-xl ">Usuário:</span>
                     {/* <Label className="mt-2 text-orange-400">Código:<span className="text-blue-500 font-bold ml-2 text-xs">{String(JuradoId).padStart(4, '0')}</span></Label> */}
-                    <Label className="text-orange-400">Nome:<span className="text-white font-bold ml-2 text-xs">{juradoNome}</span></Label>
-                    <Label className="text-orange-400">Atribuição:<span className="text-white font-bold ml-2 text-xs">{nivel}</span></Label>
+                    <Label className="text-orange-400">Nome:<span className="text-black font-bold ml-2 text-xs">{juradoNome}</span></Label>
+                    <Label className="text-orange-400">Atribuição:<span className="text-black font-bold ml-2 text-xs">{nivel}</span></Label>
 
                 </div>
                 <Button variant={'default'} className='bg-orange-400  mt-3 ' onClick={() => LogOut()}> <DoorOpen className="m-3" />Sair</Button>
