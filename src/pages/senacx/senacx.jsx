@@ -386,7 +386,7 @@ export default function Usuarios() {
                 </div>
                 <div name='competicao' className='md:w-[600px]'>
 
-                    <div className="CardDados p-4 border mt-2  flex flex-col justify-items-center align-middle rounded ]" >
+                    <div className="CardDados p-4 border m-3  flex flex-col justify-items-center align-middle rounded ]" >
 
                         <Label htmlFor="competidor" className='text-orange-400'>Competição:</Label>
                         {/* <Label className='mt-2'> Código: <span className='text-orange-500'>{CodCompeticao}</span></Label> */}
