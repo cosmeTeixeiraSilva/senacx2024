@@ -325,8 +325,8 @@ export default function Usuarios() {
 
                 </div>
             )}
-            <div className="submenu flex  flex-col justify-center  border rounded p-6 m-3 bg-white mt-4">
-                <div className="competidor flex flex-col justify-center m-3">
+            <div className="submenu flex  flex-col justify-center  border rounded p-6 m-3 bg-white">
+                <div className="competidor flex flex-col justify-center">
                     <span className='text-left tituloTable'>Equipe/Competidor. </span>
                     <Select className="comboSenacx"
                         //value={NomeCompetidor} //Garante que não tenha valor selecionado qdo carregar 
