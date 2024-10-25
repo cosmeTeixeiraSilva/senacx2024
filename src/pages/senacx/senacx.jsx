@@ -332,7 +332,7 @@ export default function Usuarios() {
                         //value={NomeCompetidor} //Garante que não tenha valor selecionado qdo carregar 
                         onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
                         <SelectTrigger >
-                            <SelectValue placeholder="Competidores" />
+                            <SelectValue placeholder="Competidor..." />
                         </SelectTrigger>
                         <SelectContent>
                             {competidores.map(competidor => (
@@ -352,7 +352,7 @@ export default function Usuarios() {
                         onValueChange={(SelectValue) => handleMudouCompeticao(SelectValue)}>
                         <SelectTrigger >
 
-                            <SelectValue placeholder="Selecione uma Competição" />
+                            <SelectValue placeholder="Competição..." />
                         </SelectTrigger>
                         <SelectContent>
                             {competicoes.map(competicao => (
@@ -368,7 +368,7 @@ export default function Usuarios() {
 
 
             </div>
-            <Label className='m-4 text-orange-400 font-bold text-left'>Dados da pontuação a ser inserida:</Label>
+            <Label className='m-4 text-orange-400 font-bold text-left'>Dados Atuais:</Label>
             <div className="dados flex  justify-between mt-4 rounded flex-col  md:flex-row  gap-6  ">
 
 
