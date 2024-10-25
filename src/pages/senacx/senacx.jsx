@@ -376,7 +376,7 @@ export default function Usuarios() {
 
                     <div className="CardDados p-4 border m-3  flex flex-col justify-items-center align-middle rounded  ] " >
 
-                        <Label htmlFor="competidor" className='text-orange-400'>Competidor/Equipe:</Label>
+                        <Label htmlFor="competidor" className='text-orange-400'>Equipe/Competidor:</Label>
                         {/* <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label> */}
                         <Label className='mt-2'> E-mail: <span className='text-blue-500'>{email}</span></Label>
                         <Label className='mt-2'> Celular: <span className='text-blue-500'>{celular}</span></Label>
