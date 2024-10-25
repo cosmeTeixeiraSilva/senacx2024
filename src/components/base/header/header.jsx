@@ -64,11 +64,11 @@ export default function Header() {
                     <img src="/Senac_logo.svg" className="logoMenor"></img>
 
                 </div> */}
-            <div className=" flex flex-col md:flex-row justify-between  mt-1 p-3 ">
+            <div className=" flex flex-col md:flex-row justify-between  mt-1 p-2 ">
 
                 {/*Dados do Usuário Logado no Sistema */}
-                <div className="user flex flex-col  bg-white p-3 rounded">
-                    <span className="text-white font-bold text-xl ">Usuário:</span>
+                <div className="user flex flex-col  bg-white p-2 rounded">
+                    <span className="font-bold text-xl ">Usuário:</span>
                     {/* <Label className="mt-2 text-orange-400">Código:<span className="text-blue-500 font-bold ml-2 text-xs">{String(JuradoId).padStart(4, '0')}</span></Label> */}
                     <Label className="text-orange-400">Nome:<span className="text-black font-bold ml-2 text-xs">{juradoNome}</span></Label>
                     <Label className="text-orange-400">Atribuição:<span className="text-black font-bold ml-2 text-xs">{nivel}</span></Label>
