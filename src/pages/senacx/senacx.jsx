@@ -314,6 +314,7 @@ export default function Usuarios() {
     return (
         <div className='usuarios flex flex-col justify-cente  p-2 h-full'>
             <Header />
+            <Footer />
             {/*Botão Mostrar Resultado   */}
             {mostrarResultado === 1 && (
                 <div className='flex m-1'>
@@ -414,7 +415,7 @@ export default function Usuarios() {
 
             </div>
 
-            <Footer />
+
         </div >
     );
 }

@@ -107,6 +107,7 @@ export default function About() {
 
                 </div>
             )}
+            <Footer />
 
             {/* <Ranking /> */}
             {/* <RankingGeral /> */}
@@ -120,7 +121,7 @@ export default function About() {
                 ))}
 
             </div>
-            <Footer />
+
 
         </div>
     )
