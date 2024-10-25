@@ -325,8 +325,8 @@ export default function Usuarios() {
 
                 </div>
             )}
-            <div className="submenu flex  flex-col justify-center  border rounded p-6 bg-white mt-4">
-                <div className="competidor flex flex-col justify-center">
+            <div className="submenu flex  flex-col justify-center  border rounded p-6 m-3 bg-white mt-4">
+                <div className="competidor flex flex-col justify-center m-3">
                     <span className='text-left tituloTable'>Equipe/Competidor. </span>
                     <Select className="comboSenacx"
                         //value={NomeCompetidor} //Garante que não tenha valor selecionado qdo carregar 
@@ -368,13 +368,13 @@ export default function Usuarios() {
 
 
             </div>
-            <Label className='mt-2 text-orange-400 font-bold text-left'>Dados da pontuação a ser inserida:</Label>
+            <Label className='m-4 text-orange-400 font-bold text-left'>Dados da pontuação a ser inserida:</Label>
             <div className="dados flex  justify-between mt-4 rounded flex-col  md:flex-row  gap-6  ">
 
 
                 <div name='competidor' className='md:w-[600px]' >
 
-                    <div className="CardDados p-4 border mt-2  flex flex-col justify-items-center align-middle rounded  ] " >
+                    <div className="CardDados p-4 border m-3  flex flex-col justify-items-center align-middle rounded  ] " >
 
                         <Label htmlFor="competidor" className='text-orange-400'>Competidor/Equipe:</Label>
                         {/* <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label> */}
@@ -398,7 +398,7 @@ export default function Usuarios() {
             </div >
 
             <div className='flex justify-center'>
-                <Button variant="ghost" className=' btnTable p-5 bg-orange-500 text-white font-bold rounded mt-6 text-xl w-full '
+                <Button variant="ghost" className=' btnTable p-5 bg-orange-500 text-white font-bold rounded m-6 text-xl w-full '
                     onClick={() => btnClicou()}
                     disabled={isButtonDisabled}
                 >

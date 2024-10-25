@@ -64,7 +64,7 @@ export default function Header() {
                     <img src="/Senac_logo.svg" className="logoMenor"></img>
 
                 </div> */}
-            <div className=" flex flex-col md:flex-row justify-between  mt-1 p-2 ">
+            <div className=" flex flex-col md:flex-row justify-between  m-3 p-2 ">
 
                 {/*Dados do Usuário Logado no Sistema */}
                 <div className="user flex flex-col  bg-white p-2 rounded">
