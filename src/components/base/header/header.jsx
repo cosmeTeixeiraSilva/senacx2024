@@ -45,11 +45,11 @@ export default function Header() {
             <div className=" flex flex-col md:flex-row justify-between  mt-1 p-3 ">
 
                 {/*Dados do Usuário Logado no Sistema */}
-                <div className="user flex flex-col  bg-white p-3 rounded">
-                    <span className="text-blue-500 font-bold ">Usuário:</span>
+                <div className="user flex flex-col  bg-white p-3 rounded bg-black">
+                    <span className="text-white font-bold text-xl ">Usuário:</span>
                     {/* <Label className="mt-2 text-orange-400">Código:<span className="text-blue-500 font-bold ml-2 text-xs">{String(JuradoId).padStart(4, '0')}</span></Label> */}
-                    <Label className="text-orange-400">Nome:<span className="text-blue-500 font-bold ml-2 text-xs">{juradoNome}</span></Label>
-                    <Label className="text-orange-400">Atribuição:<span className="text-blue-500 font-bold ml-2 text-xs">{nivel}</span></Label>
+                    <Label className="text-orange-400">Nome:<span className="text-white font-bold ml-2 text-xs">{juradoNome}</span></Label>
+                    <Label className="text-orange-400">Atribuição:<span className="text-white font-bold ml-2 text-xs">{nivel}</span></Label>
 
                 </div>
                 <Button variant={'default'} className='bg-orange-400  mt-3 ' onClick={() => LogOut()}> <DoorOpen className="m-3" />Sair</Button>

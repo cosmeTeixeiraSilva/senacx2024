@@ -95,7 +95,7 @@ export function Login() {
                 type="email"
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                placeholder="nome@senacx.edu.br"
+                placeholder="nome@senacx"
                 className="outline-none mt-4 w-[300px] p-2"
               // className={errors?.email?.type === 'required' ? "border-red-500" : "focus:border-azulSenac outline-none text-lg text-zinc-500 placeholder:text-zinc-300"}
               // {...register('email')}

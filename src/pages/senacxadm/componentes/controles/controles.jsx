@@ -69,10 +69,10 @@ export default function Controles() {
   return (
     <div>
       <div className="equerda">
-        <Card className="mt-3">
+        <Card className="mt-3 bg-black">
           <CardHeader>
 
-            <CardTitle className="text-xl text-left mt-1 text-blue-900 tracking-[3px] ">Área Administrativa. </CardTitle>
+            <CardTitle className="text-xl text-left mt-1 text-blue-900 tracking-[3px] text-orange-400 ">Área Administrativa. </CardTitle>
 
           </CardHeader>
           <CardContent className="flex items-center flex-col md:flex-rowjustify-center lg:flex-row gap-6 mt-1">
@@ -87,7 +87,7 @@ export default function Controles() {
                 checked={habilitado}
                 onCheckedChange={() => habilitar()}
                 className="text-xl" />
-              <Label htmlFor="habilitarResultado" className="text-md w-full text-orange-500 font-bold">Liberar Resultado.</Label>
+              <Label htmlFor="habilitarResultado" className="text-md w-full text-white  font-bold">Liberar Resultado.</Label>
             </div>
 
           </CardContent>
