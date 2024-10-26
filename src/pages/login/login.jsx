@@ -46,7 +46,7 @@ export function Login() {
         const dadosComp = JSON.parse(JSON.stringify(responseData));
         //Criando um Array de Objeto 
         const ObjDados = dadosComp[0];
-        //console.log(ObjDados.email);
+        console.log(ObjDados);
         // Salve as credenciais no local storage
         localStorage.setItem('juradoId', ObjDados.id); // Ajuste conforme sua API
         localStorage.setItem('juradoEmail', ObjDados.email); // Ajuste conforme sua API
