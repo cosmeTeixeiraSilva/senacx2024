@@ -22,7 +22,7 @@ function App() {
       <ToastContainer
         theme="colored"
         position="bottom-right"
-        autoClose={2000}
+        autoClose={1500}
         hideProgressBar={false}
       />
       {/* Este é um comentário em JSX */}
