@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="footer   rounded text-orange-500 text-2xl p-1 mt-12 flex
              justify-center align-text-bottom">
                 <Rocket className="text-center mr-4 size-12 text-blue-600" />
-                <Label className="md:text-3xl sm:text-sm text-black">SenacX Lavras - 2024</Label>
+                <Label className="md:text-3xl sm:text-sm text-black">SenacX  - 2024</Label>
                 <Rocket className="text-center ml-4 size-12" />
 
             </div>
