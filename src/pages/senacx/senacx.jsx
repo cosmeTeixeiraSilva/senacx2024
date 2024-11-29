@@ -379,8 +379,8 @@ export default function Usuarios() {
 
                         <Label htmlFor="competidor" className='dark:text-orange-500'>Equipe/Competidor:</Label>
                         {/* <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label> */}
-                        <Label className='mt-2'> E-mail: <span className='text-blue-500'>{email}</span></Label>
-                        <Label className='mt-2'> Celular: <span className='text-blue-500'>{celular}</span></Label>
+                        <Label className='mt-2 text-black'> E-mail: <span className='text-blue-500'>{email}</span></Label>
+                        <Label className='mt-2 text-black'> Celular: <span className='text-blue-500'>{celular}</span></Label>
 
 
                     </div>
@@ -391,8 +391,8 @@ export default function Usuarios() {
 
                         <Label htmlFor="competidor" className='dark:text-orange-500'>Competição:</Label>
                         {/* <Label className='mt-2'> Código: <span className='text-orange-500'>{CodCompeticao}</span></Label> */}
-                        <Label className='mt-2'> Competição: <span className='text-orange-500'>{NomeCompeticao}</span></Label>
-                        <Label className='mt-2'> Cidade: <span className='text-orange-500'>{CidadeCompeticao}</span></Label>
+                        <Label className='mt-2 text-black'> Competição: <span className='text-orange-500'>{NomeCompeticao}</span></Label>
+                        <Label className='mt-2 text-black'> Cidade: <span className='text-orange-500'>{CidadeCompeticao}</span></Label>
 
                     </div>
                 </div>
