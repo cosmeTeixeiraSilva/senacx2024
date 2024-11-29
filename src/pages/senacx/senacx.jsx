@@ -312,7 +312,7 @@ export default function Usuarios() {
 
 
     return (
-        <div className='usuarios flex flex-col justify-cente  p-2 h-full'>
+        <div className='usuarios flex flex-col justify-cente border rounded p-2 h-full dark:bg-gray-800 dark:text-white'>
             <Header />
             <Footer />
             {/*Botão Mostrar Resultado   */}
@@ -326,9 +326,9 @@ export default function Usuarios() {
 
                 </div>
             )}
-            <div className="submenu flex  flex-col justify-center  border rounded p-6 m-3 bg-white">
-                <div className="competidor flex flex-col justify-center">
-                    <span className='text-left tituloTable'>Equipe/Competidor. </span>
+            <div className="submenu flex  flex-col justify-center  border rounded p-3 m-1 dark:bg-gray-900 ">
+                <div className="competidor flex flex-col justify-center dark:bg-gray-900">
+                    <span className='text-left tituloTable dark:text-orange-500'>Equipe/Competidor. </span>
                     <Select className="comboSenacx"
                         //value={NomeCompetidor} //Garante que não tenha valor selecionado qdo carregar 
                         onValueChange={(SelectValue) => handleMudouCompetidor(SelectValue)}>
@@ -346,8 +346,8 @@ export default function Usuarios() {
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="competidor flex flex-col sm:w-full">
-                    <span className='comboSenacx text-left tituloTable mt-4'>Competição. </span>
+                <div className="competidor flex flex-col sm:w-full dark:bg-gray-900 dark:text-white">
+                    <span className='comboSenacx text-left tituloTable mt-4 dark:bg-gray-900 dark:text-orange-500'>Competição. </span>
                     <Select
                         value=''  //Garante o evento Mudar o valor caso contrario o OnValueChange não funciona
                         onValueChange={(SelectValue) => handleMudouCompeticao(SelectValue)}>
@@ -369,7 +369,7 @@ export default function Usuarios() {
 
 
             </div>
-            <Label className='m-4 text-orange-400 font-bold text-left'>Dados Atuais:</Label>
+            <Label className='m-4 dark:text-orange-500 font-bold text-left'>Dados Atuais:</Label>
             <div className="dados flex  justify-between mt-4 rounded flex-col  md:flex-row  gap-6  ">
 
 
@@ -377,7 +377,7 @@ export default function Usuarios() {
 
                     <div className="CardDados p-4 border m-3  flex flex-col justify-items-center align-middle rounded  ] " >
 
-                        <Label htmlFor="competidor" className='text-orange-400'>Equipe/Competidor:</Label>
+                        <Label htmlFor="competidor" className='dark:text-orange-500'>Equipe/Competidor:</Label>
                         {/* <Label className='mt-2'>  Código: <span className='text-blue-500'> {codigo}</span></Label> */}
                         <Label className='mt-2'> E-mail: <span className='text-blue-500'>{email}</span></Label>
                         <Label className='mt-2'> Celular: <span className='text-blue-500'>{celular}</span></Label>
@@ -389,7 +389,7 @@ export default function Usuarios() {
 
                     <div className="CardDados p-4 border m-3  flex flex-col justify-items-center align-middle rounded ]" >
 
-                        <Label htmlFor="competidor" className='text-orange-400'>Competição:</Label>
+                        <Label htmlFor="competidor" className='dark:text-orange-500'>Competição:</Label>
                         {/* <Label className='mt-2'> Código: <span className='text-orange-500'>{CodCompeticao}</span></Label> */}
                         <Label className='mt-2'> Competição: <span className='text-orange-500'>{NomeCompeticao}</span></Label>
                         <Label className='mt-2'> Cidade: <span className='text-orange-500'>{CidadeCompeticao}</span></Label>

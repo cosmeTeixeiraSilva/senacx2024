@@ -22,7 +22,7 @@ export default function VoteInput({ id, onChange }) {
 
   return (
     <input
-      className="inputVoto text-center h-12 text-sm"
+      className="inputVoto text-center h-12 text-xl"
       type="number"
       id={`input-${id}`}
       value={inputValue} // Valor controlado pelo estado local

@@ -81,13 +81,13 @@ export function Login() {
 
 
   return (
-    <div className="h-screen w-full flex">
+    <div className="h-screen w-full flex dark:bg-gray-900 dark:text-white">
       <div className="h-screen md:w-2/4 bg-pattern bg-blue-900"></div>
-      <div className="h-screen w-full md:w-2/4 flex flex-col justify-center items-center gap-1 bg-white border">
+      <div className="h-screen w-full md:w-2/4 flex flex-col justify-center items-center gap-1  border">
 
 
         <img className="mx-auto w-36" src={logo} alt="logo senac" />
-        <div className="max-w-md  p-2">
+        <div className="max-w-md  p-2 dark:bg-gray-900 dark:text-white">
           <form onSubmit={onSubmit} className="space-y-5 ">
             <div className="flex text-start flex-col w-[300px]">
               <Label htmlFor="email" className="md:text-lg lg:text-xl text-orange-500 ">Login:</Label>

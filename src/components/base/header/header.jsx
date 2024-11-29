@@ -33,8 +33,8 @@ export default function Header() {
     }
 
     return (
-        <div className="bg-[#004C94] drop-shadow-md rounded">
-            <div className="flex flex-col md:flex-row justify-between m-3 p-2">
+        <div className=" drop-shadow-md rounded">
+            <div className="flex flex-col md:flex-row justify-between m-1 p-1">
                 <div className="user flex flex-col bg-white p-2 rounded">
                     <span className="font-bold text-xl">Usuário:</span>
                     <Label className="text-orange-400">

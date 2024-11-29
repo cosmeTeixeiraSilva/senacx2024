@@ -126,7 +126,7 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
     <Card className="mt-4">
       <CardHeader>
         <CardTitle className="text-xl text-center mt-3 mb-4 text-blue-900 tracking-[3px]">{descricao}</CardTitle>
-        <CardDescription className="text-center text-md text-orange-500 tracking-[3px]">{detalhes}</CardDescription>
+        <CardDescription className="md:text-center text-justify text-xl text-orange-500 tracking-[3px]">{detalhes}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2 flex items-center sm:flex-col justify-center lg:flex-row gap-4 mt-4">
         {/* Componente VoteInput passa o valor correto no onChange */}
@@ -136,7 +136,7 @@ export default function CardVoto({ CodCompetidor, CodCompeticao, descricao, id, 
         <Button
           variant={"default"}
           id={id}
-          className="h-12  bg-blue-900 text-white text-sm w-[130px]"
+          className="h-12  bg-blue-900 text-white text-xl w-[130px]"
           onClick={() => confirmarVoto(id)}
           disabled={buttonDisabled[id]} // Desabilita o botão se o estado for true
         >
