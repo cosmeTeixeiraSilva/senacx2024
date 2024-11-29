@@ -36,11 +36,11 @@ export default function Header() {
         <div className=" drop-shadow-md rounded">
             <div className="flex flex-col md:flex-row justify-between m-1 p-1">
                 <div className="user flex flex-col bg-white p-2 rounded">
-                    <span className="font-bold text-xl">Usuário:</span>
-                    <Label className="text-orange-400">
+                    <span className="font-bold text-xl text-orange-400">Usuário Logado:</span>
+                    <Label className="text-orange-400 font-bold">
                         Nome:<span className="text-black font-bold ml-2 text-xs">{juradoNome}</span>
                     </Label>
-                    <Label className="text-orange-400">
+                    <Label className="text-orange-400 font-bold">
                         Atribuição:<span className="text-black font-bold ml-2 text-xs">{juradoNivel}</span>
                     </Label>
                 </div>
